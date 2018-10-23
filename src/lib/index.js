@@ -7,6 +7,9 @@ export { default as CheckboxInput } from './Components/CheckboxInput';
 export * from './Components/DateInput';
 export { default as DateInput } from './Components/DateInput';
 
+export * from './Components/NamedInput';
+export { default as NamedInput } from './Components/NamedInput';
+
 export * from './Components/SelectInput';
 export { default as SelectInput } from './Components/SelectInput';
 
