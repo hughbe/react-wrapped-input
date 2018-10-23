@@ -1,0 +1,23 @@
+{
+  "name": "react-wrapped-input",
+  "version": "1.0.0",
+  "description": "Wrapped inputs that integrate set and get functions to simplify building React forms.",
+  "main": "./build/index.js",
+  "repository": "https://github.com/hughbe/react-wrapped-input",
+  "author": "Hugh Bellamy",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.5.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "scripts": {
+    "build": "babel lib --presets env,react --plugins=transform-class-properties,transform-object-rest-spread --out-dir build",
+    "prepublish": "npm run build"
+  }
+}
