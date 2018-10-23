@@ -1,6 +1,6 @@
 {
   "name": "react-wrapped-input",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Wrapped inputs that integrate set and get functions to simplify building React forms.",
   "main": "./build/index.js",
   "repository": "https://github.com/hughbe/react-wrapped-input",

@@ -21,3 +21,6 @@ export { default as TextInput } from './Components/TextInput';
 
 export * from './Components/UrlInput';
 export { default as UrlInput } from './Components/UrlInput';
+
+export * from './Components/WrappedInput';
+export { default as WrappedInput } from './Components/WrappedInput';
