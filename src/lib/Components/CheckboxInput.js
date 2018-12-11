@@ -1,15 +1,24 @@
 import React from 'react';
 
-const CheckboxInput = ({ name, value, key, ...rest }) => (
-    <div className="form-check">
+const CheckboxInput = ({ name, value, key, ...rest }) => {
+    const input = (
         <input
             type="checkbox"
-            className="form-check-input"
+            className={name && "form-check-input"}
             onChange={event => value.set(event.target.checked)}
             checked={value.get()}
             {...rest}
         />
-        {name && <label className="form-check-label">{name}</label>}
-    </div>
-);
+    );
+    if (!name) {
+        return input;
+    }
+
+    return (
+        <div className="form-check">
+            {input}
+            <label className="form-check-label">{name}</label>
+        </div>
+    );
+}
 export default CheckboxInput;
