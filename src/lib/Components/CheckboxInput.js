@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CheckboxInput = ({ name, value, key, ...rest }) => (
-    <div className="form-check mb-3">
+    <div className="form-check">
         <input
             type="checkbox"
             className="form-check-input"
@@ -9,7 +9,7 @@ const CheckboxInput = ({ name, value, key, ...rest }) => (
             checked={value.get()}
             {...rest}
         />
-        <label className="form-check-label">{name}</label>
+        {name && <label className="form-check-label">{name}</label>}
     </div>
 );
 export default CheckboxInput;
