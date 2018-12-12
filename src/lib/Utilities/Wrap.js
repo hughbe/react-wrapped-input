@@ -26,16 +26,16 @@ const getSetValue = (value, newValue, name1, name2, name3, name4) => {
         return Object.assign({}, value, {[name1]: newValue});
     } else if (typeof name3 === 'undefined') {
         const value1 = Object.assign({}, value[name1], {[name2]: newValue});
-        return {[name1]: value1};
+        return Object.assign({}, value, {[name1]: value1});
     } else if (typeof name4 === 'undefined') {
         const value2 = Object.assign({}, value[name1][name2], {[name3]: newValue});
         const value1 = Object.assign({}, value[name1], {[name2]: value2});
-        return {[name1]: value1};
+        return Object.assign({}, value, {[name1]: value1});
     } else {
         const value3 = Object.assign({}, value[name1][name2][name3], {[name4]: newValue});
         const value2 = Object.assign({}, value[name1][name2], {[name3]: value3});
         const value1 = Object.assign({}, value[name1], {[name2]: value2});
-        return {[name1]: value1};
+        return Object.assign({}, value, {[name1]: value1});
     }
 };
 
