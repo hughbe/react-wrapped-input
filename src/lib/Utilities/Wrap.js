@@ -1,20 +1,20 @@
 const getValue = (value, name1, name2, name3, name4) => {
-    if (!name1) {
+    if (typeof name1 === 'undefined') {
         return value || '';
     }
     
     const value1 = value[name1];
-    if (!value1 || !name2) {
+    if (!value1 || typeof name2 === 'undefined') {
         return value1 || '';
     }
 
     const value2 = value1[name2];
-    if (!value2 || !name3) {
+    if (!value2 || typeof name3 === 'undefined') {
         return value2 || '';
     }
     
     const value3 = value2[name3] || '';
-    if (!value3 || !name4) {
+    if (!value3 || typeof name4 === 'undefined') {
         return value3 || '';
     }
 
@@ -22,12 +22,12 @@ const getValue = (value, name1, name2, name3, name4) => {
 };
 
 const getSetValue = (value, newValue, name1, name2, name3, name4) => {
-    if (!name2) {
+    if (typeof name2 === 'undefined') {
         return Object.assign({}, value, {[name1]: newValue});
-    } else if (!name3) {
+    } else if (typeof name3 === 'undefined') {
         const value1 = Object.assign({}, value[name1], {[name2]: newValue});
         return {[name1]: value1};
-    } else if (!name4) {
+    } else if (typeof name4 === 'undefined') {
         const value2 = Object.assign({}, value[name1][name2], {[name3]: newValue});
         const value1 = Object.assign({}, value[name1], {[name2]: value2});
         return {[name1]: value1};
