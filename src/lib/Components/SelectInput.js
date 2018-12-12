@@ -7,7 +7,7 @@ const SelectInput = ({ name, value, children }) => (
         value={value.get()}
     >
         <option>{name}</option>
-        {children.map(c => <option>{c}</option>)}
+        {children.map(c => <option key={c}>{c}</option>)}
     </select>
 );
 export default SelectInput;
