@@ -1,16 +1,25 @@
 import React from 'react';
 
-const TextareaInput = ({ name, value, ...rest }) => (
-    <div className="form-group">
-        <label>{name}</label>
+const TextareaInput = ({ name, value, placeholder, className, ...rest }) => {
+    const input = (
         <textarea
             rows={5}
-            placeholder={name}
-            className="form-control"
+            placeholder={placeholder || name}
+            className={`form-control${className ? ' ' + className : ''}`}
             value={value.get()}
             onChange={event => value.set(event.target.value)}
             {...rest}
         />
-    </div>
-);
+    );
+    if (!name) {
+        return input;
+    }
+
+    return (
+        <div className="form-group">
+            <label>{name}</label>
+            {input}
+        </div>
+    );
+}
 export default TextareaInput;
