@@ -21,21 +21,30 @@ const getValue = (value, name1, name2, name3, name4) => {
     return value3[name4] || '';
 };
 
+const setValue = (value, newValue, name) => {
+    if (Array.isArray(value)) {
+        value[name] = newValue;
+        return value;
+    }
+
+    return Object.assign({}, value, {[name]: newValue});
+}
+
 const getSetValue = (value, newValue, name1, name2, name3, name4) => {
     if (typeof name2 === 'undefined') {
-        return Object.assign({}, value, {[name1]: newValue});
+        return setValue(value, newValue, name1);
     } else if (typeof name3 === 'undefined') {
-        const value1 = Object.assign({}, value[name1], {[name2]: newValue});
-        return Object.assign({}, value, {[name1]: value1});
+        const value1 = setValue(value[name1], newValue, name2);
+        return setValue(value, value1, name1);
     } else if (typeof name4 === 'undefined') {
-        const value2 = Object.assign({}, value[name1][name2], {[name3]: newValue});
-        const value1 = Object.assign({}, value[name1], {[name2]: value2});
-        return Object.assign({}, value, {[name1]: value1});
+        const value2 = setValue(value[name1][name2], newValue, name3);
+        const value1 = setValue(value[name1], value2, name2);
+        return setValue(value, value1, name1);
     } else {
-        const value3 = Object.assign({}, value[name1][name2][name3], {[name4]: newValue});
-        const value2 = Object.assign({}, value[name1][name2], {[name3]: value3});
-        const value1 = Object.assign({}, value[name1], {[name2]: value2});
-        return Object.assign({}, value, {[name1]: value1});
+        const value3 = setValue(value[name1][name2][name3], newValue, name3);
+        const value2 = setValue(value[name1][name2], value3, name3);
+        const value1 = setValue(value[name1], value2, name2);
+        return setValue(value, value1, name1);
     }
 };
 
