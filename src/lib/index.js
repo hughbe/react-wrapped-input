@@ -10,6 +10,9 @@ export { default as DateInput } from './Components/DateInput';
 export * from './Components/NamedInput';
 export { default as NamedInput } from './Components/NamedInput';
 
+export * from './Components/NumberInput';
+export { default as NumberInput } from './Components/NumberInput';
+
 export * from './Components/SelectInput';
 export { default as SelectInput } from './Components/SelectInput';
 
