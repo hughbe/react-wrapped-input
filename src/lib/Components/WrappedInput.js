@@ -1,13 +1,39 @@
 import React from 'react';
+import focusNextInput from '../Utilities/FocusNextInput';
 
-const WrappedInput = ({ type, name, value, placeholder, className, ...rest }) => (
-    <input
-        type={type}
-        placeholder={placeholder || name}
-        className={`form-control${className ? ' ' + className : ''}`}
-        onChange={event => value.set(event.target.value)}
-        value={value.get()}
-        {...rest}
-    />
-);
-export default WrappedInput;
+export default class WrappedInput extends React.Component {
+    state = {};
+
+    handleChanged = (event) => {
+        const  { trimValueOnPaste = true, focusNextInputOnPaste = true, value } = this.props;
+        if (this.state.pasting && trimValueOnPaste) {
+            value.set(event.target.value.trim());
+            if (focusNextInputOnPaste) {
+                focusNextInput(event.target);
+            }
+            this.setState({pasting: false});
+        } else {
+            value.set(event.target.value);
+        }
+    }
+
+    handlePasted = () => {
+        this.setState({pasting: true});
+    }
+
+    render() {
+        const { type, name, value, placeholder, className, ...rest } = this.props;
+
+        return (
+            <input
+                type={type}
+                placeholder={placeholder || name}
+                className={`form-control${className ? ' ' + className : ''}`}
+                value={value.get()}
+                onChange={this.handleChanged}
+                onPasteCapture={this.handlePasted}
+                {...rest}
+            />
+        );
+    }
+}

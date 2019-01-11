@@ -1,6 +1,9 @@
 export * from './Utilities/Wrap';
 export { default as wrap } from './Utilities/Wrap';
 
+export * from './Utilities/FocusNextInput';
+export { default as focusNextInput } from './Utilities/FocusNextInput';
+
 export * from './Components/CheckboxInput';
 export { default as CheckboxInput } from './Components/CheckboxInput';
 
