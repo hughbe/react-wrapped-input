@@ -2,6 +2,8 @@ import React from 'react';
 import focusNextInput from '../Utilities/FocusNextInput';
 
 export default class TextareaInput extends React.Component {
+    state = {};
+
     handleChanged = (event) => {
         const  { trimValueOnPaste = true, focusNextInputOnPaste = true, value } = this.props;
         if (this.state.pasting && trimValueOnPaste) {
