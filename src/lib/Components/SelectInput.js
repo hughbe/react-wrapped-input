@@ -14,15 +14,26 @@ function getChildren(children) {
 }
 
 export default function SelectInput({ name, value, children, ...rest }) {
-    return (
+    const input = (
         <select
             className="form-control"
             onChange={event => value.set(event.target.value)}
             value={value.get()}
             {...rest}
         >
-            <option>{name}</option>
+            {name && <option>{name}</option>}
             {getChildren(children)}
         </select>
+    );
+
+    if (!name) {
+        return input;
+    }
+
+    return (
+        <div className="form-group">
+            <label>{name}</label>
+            {input}
+        </div>
     );
 }
