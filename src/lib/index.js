@@ -1,6 +1,9 @@
 export * from './Utilities/Wrap';
 export { default as wrap } from './Utilities/Wrap';
 
+export * from './Utilities/NumberWrap';
+export { default as numberWrap } from './Utilities/NumberWrap';
+
 export * from './Utilities/FocusNextInput';
 export { default as focusNextInput } from './Utilities/FocusNextInput';
 
