@@ -1,7 +1,7 @@
 import React from 'react';
 
 function getChildren(children) {
-    if (!Array.shift(children) || children.length === 0) {
+    if (!Array.isArray(children) || children.length === 0) {
         return children;
     }
 
