@@ -13,7 +13,7 @@ function getChildren(children) {
     return children;
 }
 
-export default function SelectInput({ name, value, children, ...rest }) {
+export default function SelectInput({ name, hideNameLabel = false, value, children, ...rest }) {
     const input = (
         <select
             className="form-control"
@@ -26,7 +26,7 @@ export default function SelectInput({ name, value, children, ...rest }) {
         </select>
     );
 
-    if (!name) {
+    if (!name || hideNameLabel) {
         return input;
     }
 
